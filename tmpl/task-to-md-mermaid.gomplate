@@ -1,6 +1,8 @@
 {{- $tasks := (ds "tasks").tasks -}}
+
 # Taskfile Workflow Diagram
 
+*This content was generated thanks to [adriens/task-gomplates](https://github.com/adriens/task-gomplates).* 
 This diagram visualizes the dependencies and flow between tasks defined in `Taskfile.yml` :
 
 ```mermaid
@@ -38,9 +40,7 @@ graph TD
 | Task Name     | Description                                                                                       |
 |-------------- |---------------------------------------------------------------------------------------------------|
 {{- range $name, $task := $tasks }}
-| {{ $name }}       | {{ $task.desc }} |
+| **`{{ $name }}`** | {{ $task.desc }} |
 {{- end }}
 
----
 
-Copy and paste the Mermaid code into a Markdown viewer that supports Mermaid to see the graph rendered visually.
