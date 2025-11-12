@@ -38,19 +38,24 @@ I gave it a try on your [taskfile (website)](https://github.com/go-task/task/blo
 
 1. **Download the Taskfile and the template file**
 
-   ```sh
-   # Download the Taskfile
-   curl -L https://github.com/go-task/task/raw/main/website/Taskfile.yml -o Taskfile.yml
+```sh
+# Download the Taskfile
+curl -o task-to-md-mermaid.gomplate \
+  https://raw.githubusercontent.com/adriens/task-gomplates/main/tmpl/task-to-md-mermaid.gomplate
 
-   # Download the gomplate template
-   curl -L https://github.com/adriens/task-gomplates/raw/main/tmpl/task-to-md-mermaid.gomplate -o task-to-md-mermaid.gomplate
-   ```
+# Download the gomplate template
+curl -L \
+  https://github.com/adriens/task-gomplates/raw/main/tmpl/task-to-md-mermaid.gomplate \
+  -o task-to-md-mermaid.gomplate
+```
 
 
 2. **Generate the Markdown Documentation**
 
-   ```sh
-   gomplate -f task-to-md-mermaid.gomplate -d tasks=Taskfile.yml > Taskfile.md
-   ```
+```sh
+gomplate -f task-to-md-mermaid.gomplate -d tasks=Taskfile.yml > Taskfile.md
+```
 
 3. **🙌 Enjoy**
+
+Open the markdown in a GH issue.
