@@ -53,4 +53,4 @@ I gave it a try on your [taskfile (website)](https://github.com/go-task/task/blo
    gomplate -f task-to-md-mermaid.gomplate -d tasks=Taskfile.yml > Taskfile.md
    ```
 
-3. 🙌 Enjoy
+3. **🙌 Enjoy**
