@@ -40,8 +40,8 @@ I gave it a try on your [taskfile (website)](https://github.com/go-task/task/blo
 
 ```sh
 # Download the Taskfile
-curl -o task-to-md-mermaid.gomplate \
-  https://raw.githubusercontent.com/adriens/task-gomplates/main/tmpl/task-to-md-mermaid.gomplate
+curl -L https://github.com/go-task/task/raw/main/website/Taskfile.yml \
+	-o Taskfile.yml
 
 # Download the gomplate template
 curl -L \
