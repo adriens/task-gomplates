@@ -10,7 +10,8 @@ Ready-to-use template to use around `Task` `yaml` files
 Download the template:
 
 ```sh
-curl -o task-to-md-mermaid.gomplate https://raw.githubusercontent.com/adriens/task-gomplates/main/task-to-md-mermaid.gomplate
+curl -o task-to-md-mermaid.gomplate \
+	https://raw.githubusercontent.com/adriens/task-gomplates/main/tmpl/task-to-md-mermaid.gomplate
 ```
 
 Generate the Markdown report
@@ -22,7 +23,7 @@ gomplate -f task-to-md-mermaid.gomplate -d tasks=Taskfile.yml > Taskfile.md
 ```
 
 - `-f`: specifies the template file to use
-- `-d tasks=Taskfile.yml`: loads Taskfile.yml as a datasource named `tasks`
+- `-d tasks=Taskfile.yml`: loads `Taskfile.yml` as a datasource named `tasks`
 - `> Taskfile.md`: writes the output to the Markdown file
 
 ---
