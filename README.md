@@ -29,3 +29,28 @@ gomplate -f task-to-md-mermaid.gomplate -d tasks=Taskfile.yml > Taskfile.md
 ---
 
 You can then open `Taskfile.md` in a Markdown editor that supports Mermaid to view the diagram and the task table.
+
+# 🕹️ Give it  a try
+
+Let's generate the documentaton of the build of Task website : 
+
+I gave it a try on your [taskfile (website)](https://github.com/go-task/task/blob/main/website/Taskfile.yml) : 
+
+1. **Download the Taskfile and the template file**
+
+   ```sh
+   # Download the Taskfile
+   curl -L https://github.com/go-task/task/raw/main/website/Taskfile.yml -o Taskfile.yml
+
+   # Download the gomplate template
+   curl -L https://github.com/adriens/task-gomplates/raw/main/tmpl/task-to-md-mermaid.gomplate -o task-to-md-mermaid.gomplate
+   ```
+
+
+2. **Generate the Markdown Documentation**
+
+   ```sh
+   gomplate -f task-to-md-mermaid.gomplate -d tasks=Taskfile.yml > Taskfile.md
+   ```
+
+3. 🙌 Enjoy
