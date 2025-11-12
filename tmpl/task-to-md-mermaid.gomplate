@@ -1,0 +1,46 @@
+{{- $tasks := (ds "tasks").tasks -}}
+# Taskfile Workflow Diagram
+
+This diagram visualizes the dependencies and flow between tasks defined in `Taskfile.yml` :
+
+```mermaid
+graph TD
+    {{- range $name, $_ := $tasks }}
+    {{- if eq $name "default" }}
+    default["**default**"]:::defaultNode
+    {{- else }}
+    {{ $name }}[{{ $name }}]
+    {{- end }}
+    {{- end }}
+
+    {{- range $name, $task := $tasks }}
+        {{- if (has $task "deps") }}
+            {{- range $dep := $task.deps }}
+    {{ $name }} -- deps --> {{ $dep }}
+            {{- end }}
+        {{- end }}
+        {{- if and (eq $name "default") (has $task "cmds") }}
+            {{- range $cmd := $task.cmds }}
+                {{- if (strings.HasPrefix $cmd "task ") }}
+                    {{- $dep := (strings.TrimPrefix "task " $cmd) }}
+    default -- deps --> {{ $dep }}
+                {{- end }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+
+    classDef defaultNode fill:#1976D2,color:#fff,stroke:#333,stroke-width:2px;
+```
+
+
+## Task Goals and Descriptions
+
+| Task Name     | Description                                                                                       |
+|-------------- |---------------------------------------------------------------------------------------------------|
+{{- range $name, $task := $tasks }}
+| {{ $name }}       | {{ $task.desc }} |
+{{- end }}
+
+---
+
+Copy and paste the Mermaid code into a Markdown viewer that supports Mermaid to see the graph rendered visually.
